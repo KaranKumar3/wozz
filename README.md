@@ -72,7 +72,7 @@ Top Offender:
 | Orphaned load balancers | LBs with no backend | ~$20/month each |
 | Unbound volumes | PVs not attached | ~$10/100GB/month |
 
-**Note:** Requires metrics-server for accurate usage data. Falls back to limit/request analysis if metrics unavailable.
+**Note:** Requires metrics-server for accurate usage data. Falls back to request/limit analysis if metrics unavailable.
 
 ---
 
