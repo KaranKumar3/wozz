@@ -156,11 +156,11 @@
     <section class="relative overflow-hidden pt-32 pb-40 px-4 sm:px-6 lg:px-8">
         <div class="max-w-5xl mx-auto text-center relative z-10">
             <h1 class="text-6xl sm:text-7xl lg:text-8xl font-bold mb-8 leading-tight animate-fade-in-up">
-                That $10,000 Bill<br>
-                <span class="gradient-text">Wasn't a "Bug"...</span>
+                Know What Every Line Costs.<br>
+                <span class="gradient-text">While You Write It.</span>
             </h1>
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-600 mb-16 animate-fade-in-delay">
-                It Was a Bad Simulation.
+                Snyk for Cloud Costs.
             </h2>
             <form id="hero-form" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto animate-fade-in-delay" action="https://formspree.io/f/xovyqpvg" method="POST">
                 <input 
@@ -188,15 +188,15 @@
     <section class="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
         <div class="max-w-5xl mx-auto fade-in-on-scroll">
             <h3 class="text-4xl sm:text-5xl font-bold mb-8 text-center">
-                Stop Blaming "Usage".<br>
-                <span class="gradient-text">Start Finding the Bug.</span>
+                You Can't Fix<br>
+                <span class="gradient-text">What You Can't See.</span>
             </h3>
             <div class="bg-white rounded-3xl p-12 shadow-xl border border-gray-100 card-hover">
                 <p class="text-xl sm:text-2xl text-gray-700 leading-relaxed text-center font-light mb-6">
-                    Current code linters (like SonarQube) are <span class="font-semibold text-gray-900">'cost-blind.'</span> FinOps tools (like Finout) are <span class="font-semibold text-gray-900">'code-blind.'</span> Neither can simulate the true dollar impact of your application code.
+                    Developers write code blind to costs. By the time FinOps sees the bill, it's too late. The damage is done.
                 </p>
                 <p class="text-xl sm:text-2xl text-gray-700 leading-relaxed text-center font-light">
-                    <span class="font-semibold gradient-text">Wozz is the first "Cloud Cost Simulator"</span> that finds the complex trade-offs (API calls vs. data transfer vs. memory) that really cause 'horror story' bills.
+                    <span class="font-semibold gradient-text">Wozz shifts cost awareness left.</span> See the dollar impact of every function call, loop, and API request in real-time—right in your editor, as you code.
                 </p>
             </div>
         </div>
@@ -206,53 +206,85 @@
     <section class="py-32 px-4 sm:px-6 lg:px-8">
         <div class="max-w-6xl mx-auto">
             <h3 class="text-4xl sm:text-5xl font-bold mb-8 text-center fade-in-on-scroll">
-                Find Bugs Before<br>
-                <span class="gradient-text">You Merge.</span>
+                Catch Cost Bugs<br>
+                <span class="gradient-text">As You Type.</span>
             </h3>
             <p class="text-xl sm:text-2xl text-gray-600 leading-relaxed text-center mb-20 max-w-3xl mx-auto font-light fade-in-on-scroll">
-                Wozz scans every Pull Request, finds 'cost anti-patterns' (like N+1 API calls), and posts a comment before it hits production.
+                Wozz runs in your IDE and CI/CD pipeline. Get instant cost feedback on loops, API calls, and data transfers—before you even commit.
             </p>
             
-            <!-- GitHub PR Comment Mockup -->
-            <div class="max-w-5xl mx-auto bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-200 card-hover fade-in-on-scroll">
-                <div class="bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200 px-8 py-6 flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white font-bold shadow-lg">
-                        w
+            <!-- IDE Inline Warning Mockup -->
+            <div class="max-w-5xl mx-auto bg-gray-900 rounded-3xl overflow-hidden shadow-2xl border border-gray-700 card-hover fade-in-on-scroll">
+                <!-- IDE Header -->
+                <div class="bg-gray-800 border-b border-gray-700 px-6 py-3 flex items-center gap-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-900">wozz-bot</span>
-                            <span class="text-gray-500 text-sm">commented</span>
-                        </div>
-                        <div class="text-gray-400 text-sm">just now</div>
-                    </div>
+                    <span class="text-gray-400 text-sm font-mono ml-4">zip_reader.py</span>
                 </div>
-                <div class="p-8">
-                    <div class="flex items-start gap-4 mb-6">
-                        <span class="text-3xl animate-bounce">🚨</span>
-                        <div class="flex-1">
-                            <div class="font-bold text-2xl text-red-500 mb-4">Cost Simulation Report</div>
-                            <div class="space-y-3 text-gray-700 mb-6 text-lg">
+                
+                <!-- Code Editor -->
+                <div class="p-8 font-mono text-sm">
+                    <div class="space-y-2">
+                        <div class="flex">
+                            <span class="text-gray-500 select-none w-12 text-right pr-4">85</span>
+                            <span class="text-gray-300">file_size = self.s3_client.head_object(...)</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-500 select-none w-12 text-right pr-4">86</span>
+                            <span class="text-gray-300">buffer_size = initial_buffer_size</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-500 select-none w-12 text-right pr-4">87</span>
+                            <span class="text-gray-300"></span>
+                        </div>
+                        
+                        <!-- Highlighted problematic line with inline warning -->
+                        <div class="bg-red-500/10 border-l-4 border-red-500">
+                            <div class="flex">
+                                <span class="text-gray-500 select-none w-12 text-right pr-4">88</span>
+                                <span class="text-gray-300"><span class="text-purple-400">while</span> buffer_size &lt;= max_buffer_size:</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-red-500/10 border-l-4 border-red-500">
+                            <div class="flex">
+                                <span class="text-gray-500 select-none w-12 text-right pr-4">89</span>
+                                <span class="text-gray-300 pl-8">chunk = self._fetch_data_from_s3(filename, ...)</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Inline Wozz Warning -->
+                        <div class="bg-red-900/30 border border-red-500/50 rounded-lg p-4 my-4 ml-12">
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl">💰</span>
                                 <div>
-                                    <span class="text-gray-500 font-medium">File:</span> 
-                                    <code class="ml-2 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-lg font-mono text-sm border border-emerald-200">zip_reader.py</code>
-                                </div>
-                                <div>
-                                    <span class="text-gray-500 font-medium">Line:</span> 
-                                    <span class="ml-2 text-emerald-600 font-bold text-xl">91</span>
-                                </div>
-                                <div class="pt-2">
-                                    <span class="text-gray-500 font-medium">Issue:</span> 
-                                    <span class="ml-2">N+1 <code class="bg-emerald-50 text-emerald-700 px-2 py-1 rounded font-mono text-sm border border-emerald-200">get_object</code> call.</span>
-                                </div>
-                                <div class="pt-2">
-                                    <span class="text-gray-500 font-medium">Simulation:</span> 
-                                    <span class="ml-2">This pattern will generate <span class="text-red-500 font-bold text-xl">4.5x more API calls</span> and, with data transfer, will be <span class="text-red-500 font-bold text-xl">$14.82 more expensive</span> for every 10,000 runs.</span>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="font-bold text-red-400">Wozz Cost Warning</span>
+                                        <span class="text-xs bg-red-500 text-white px-2 py-1 rounded">HIGH COST</span>
+                                    </div>
+                                    <p class="text-gray-300 mb-2">
+                                        <code class="bg-red-500/20 text-red-300 px-2 py-1 rounded">get_object</code> called inside loop
+                                    </p>
+                                    <p class="text-gray-400 text-xs mb-3">
+                                        Est. cost: <span class="text-yellow-400 font-bold">$14.82 per 10k runs</span> (4.5x more expensive than batch fetch)
+                                    </p>
+                                    <button class="text-emerald-400 hover:text-emerald-300 text-xs font-semibold underline">
+                                        View fix suggestion →
+                                    </button>
                                 </div>
                             </div>
-                            <a href="#" class="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                                Click for full report & AI-generated fix →
-                            </a>
+                        </div>
+                        
+                        <div class="flex">
+                            <span class="text-gray-500 select-none w-12 text-right pr-4">90</span>
+                            <span class="text-gray-300 pl-8">index = chunk.rfind(signature)</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-500 select-none w-12 text-right pr-4">91</span>
+                            <span class="text-gray-300 pl-8"><span class="text-purple-400">if</span> index != -<span class="text-green-400">1</span>:</span>
                         </div>
                     </div>
                 </div>
@@ -265,9 +297,9 @@
         <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-emerald-50 shimmer"></div>
         <div class="max-w-5xl mx-auto text-center relative z-10 fade-in-on-scroll">
             <h3 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-16">
-                Stop the next<br>
-                <span class="gradient-text">"horror story" bill.</span><br>
-                Before it happens.
+                Write code with confidence.<br>
+                <span class="gradient-text">Know the cost</span><br>
+                before you ship.
             </h3>
             <form id="cta-form" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" action="https://formspree.io/f/xovyqpvg" method="POST">
                 <input 
