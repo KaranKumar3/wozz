@@ -1,25 +1,24 @@
-# Wozz
-
-**Kubernetes cost optimization. Prevent waste before it ships.**
+# Wozz: Kubernetes Cost Optimization
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Action](https://img.shields.io/badge/GitHub%20Action-v1-blue)](https://github.com/marketplace/actions/wozz-cost-linter)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/WozzHQ/wozz/blob/main/CONTRIBUTING.md)
 
----
+**Prevent waste before it ships.**
 
-## Overview
+### Overview
 
 Wozz helps engineering teams reduce Kubernetes spend through two approaches:
 
 | Tool | Purpose | How It Works |
 | :--- | :--- | :--- |
-| **[PR Cost Linter](./action)** | Prevention | Analyzes pull requests for resource changes and comments with cost impact before merge. |
-| **[Audit CLI](./cli)** | Discovery | Scans running clusters to identify over-provisioned pods and wasted resources. |
+| **[PR Cost Linter](https://github.com/WozzHQ/wozz/tree/main/action)** | **Prevention** | Analyzes pull requests for resource changes and comments with cost impact before merge. |
+| **[Audit CLI](https://github.com/WozzHQ/wozz/tree/main/cli)** | **Discovery** | Scans running clusters to identify over-provisioned pods and wasted resources. |
 
 ---
 
-## PR Cost Linter (GitHub Action)
-
-Catches expensive resource changes during code review.
+### 🛡️ PR Cost Linter (GitHub Action)
+*Catches expensive resource changes during code review.*
 
 ```yaml
 # .github/workflows/wozz.yml
@@ -33,39 +32,46 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: WozzHQ/wozz/action@v1
+      - uses: WozzHQ/wozz/action@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cost-threshold: 100
 ```
 
-[View documentation →](./action)
+[→ View Full Documentation](https://github.com/WozzHQ/wozz/tree/main/action)
 
 ---
 
-## Audit CLI
-
-Identifies waste in your current cluster. Runs locally.
+### 🔍 Audit CLI
+*Identifies waste in your current cluster. Runs locally.*
 
 ```bash
-curl -o wozz.sh -L https://wozz.io/audit.sh
+# Download, Inspect, Run
+curl -o wozz.sh -L https://raw.githubusercontent.com/WozzHQ/wozz/main/cli/wozz.sh
 cat wozz.sh
 chmod +x wozz.sh && ./wozz.sh
 ```
 
-[View documentation →](./cli)
+[→ View Full Documentation](https://github.com/WozzHQ/wozz/tree/main/cli)
 
 ---
 
-## Security
+### Security
 
-- Runs on your infrastructure (local machine or GitHub runner)
-- No agents or cluster modifications
-- Read-only operations only
-- Fully open source
+- **Zero Trust:** Runs entirely on your infrastructure (local machine or GitHub runner).
+- **No Agents:** No DaemonSets or cluster modifications required.
+- **Read-Only:** Only uses `kubectl get` and `kubectl top`.
+- **Open Source:** MIT Licensed.
 
 ---
 
-## License
+### License
 
-MIT
+MIT License - see [LICENSE](https://github.com/WozzHQ/wozz/blob/main/LICENSE) file for details.
+
+---
+
+<p align="center">
+  <strong>Built with ❤️ by the Wozz team</strong><br>
+  <a href="https://wozz.io">wozz.io</a>
+</p>
